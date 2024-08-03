@@ -14,6 +14,7 @@ const IFRAME_SIZE = {
     w: SCREEN_SIZE.w - IFRAME_PADDING,
     h: SCREEN_SIZE.h - IFRAME_PADDING,
 };
+const iframeLink = "https://rahmath-innersite.netlify.app/";
 
 export default class MonitorScreen extends EventEmitter {
     application: Application;
@@ -184,7 +185,7 @@ export default class MonitorScreen extends EventEmitter {
 
         // Set iframe attributes
         // PROD
-        iframe.src = process.env.REACT_APP_IFRAME;
+        iframe.src = iframeLink;
         /**
          * Use dev server is query params are present
          *
@@ -194,7 +195,7 @@ export default class MonitorScreen extends EventEmitter {
          */
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('dev')) {
-            iframe.src = process.env.REACT_APP_IFRAME;
+            iframe.src = iframeLink;
         }
         iframe.style.width = this.screenSize.width + 'px';
         iframe.style.height = this.screenSize.height + 'px';
