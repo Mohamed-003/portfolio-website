@@ -142,7 +142,7 @@ export default class MonitorScreen extends EventEmitter {
         container.style.background = '#1d2e2f';
 
         // Create iframe
-        const iframe = document.createElement('iframe');
+        const iframe:any = document.createElement('iframe');
 
         // Bubble mouse move events to the main application, so we can affect the camera
         iframe.onload = () => {
@@ -184,7 +184,7 @@ export default class MonitorScreen extends EventEmitter {
 
         // Set iframe attributes
         // PROD
-        iframe.src = 'http://localhost:3000/';
+        iframe.src = process.env.REACT_APP_IFRAME;
         /**
          * Use dev server is query params are present
          *
@@ -194,7 +194,7 @@ export default class MonitorScreen extends EventEmitter {
          */
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('dev')) {
-            iframe.src = 'http://localhost:3000/';
+            iframe.src = process.env.REACT_APP_IFRAME;
         }
         iframe.style.width = this.screenSize.width + 'px';
         iframe.style.height = this.screenSize.height + 'px';
