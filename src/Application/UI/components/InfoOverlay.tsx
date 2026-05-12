@@ -6,7 +6,7 @@ interface InfoOverlayProps {
     visible: boolean;
 }
 
-const NAME_TEXT = 'Mohamed Rahmathullah';
+const NAME_TEXT = 'Raymond';
 const TITLE_TEXT = 'Software Engineer';
 const MULTIPLIER = 1;
 
